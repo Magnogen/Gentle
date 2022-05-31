@@ -1,0 +1,52 @@
+Keywords
+- let
+- import
+
+Values
+- number `4.2`
+- colour `#004cff`
+- list `[ ... ]`
+
+Libraries
+- Noise
+  - random
+  - value
+  - perlin
+  - simplex
+  - voronoi
+- Colour
+  - sample colours
+  - hsl
+  - cmy
+- Inout
+  - types of in/output
+  - slider
+  - point
+  - image
+  - video
+  - audio
+  - etc
+- Render
+  - big images
+  - videos
+  - etc
+- Sdf
+  - SDF of line
+  - rect
+  - circle
+  - other primitives
+- Gradient
+  - X
+  - Y
+  - R
+  - A
+- Remap
+  - almost identity
+  - exp pulse
+  - gain
+  - etc
+- Limit
+  - wrap
+  - clamp
+  - fold
+  - sigmoid
