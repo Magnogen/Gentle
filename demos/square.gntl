@@ -1,0 +1,19 @@
+import Gradient as grad
+
+// start out with a 100% middle
+let square = 1
+
+// do the outline border
+// (|-x| == |x|, absolute value)
+let thickness = 0.1
+square = |x-0.5| < (0.5-thickness) ? final : 0
+square = |y-0.5| < (0.5-thickness) ? final : 0
+
+// you can then multiply `square` by 
+// another layer to get a black border
+// over the top of that layer
+// ... or just a colour.
+out white_square = square * #fff
+
+let blue_to_red = [grad.x*255, 0, (1-grad.x)*255]
+out gradient_square = square * blue_to_red
