@@ -1,11 +1,30 @@
-Keywords
-- let
-- import
-
-Values
-- number `4.2`
-- colour `#004cff`
-- list `[ ... ]`
+| Token | Matching string |
+| :- | :-: |
+| `LPAREN`, `RPAREN` | `(`, `)` |
+| `LSQUARE`, `RSQUARE` | `[`, `]` |
+| `COMMA` | `,` |
+| `DOT` | `.` |
+| `PLUS` | `+` |
+| `DASH` | `-` |
+| `STAR` | `*` |
+| `SLASH` | `/` |
+| `PIPE` | `\|` |
+| `QMARK` | `?` |
+| `COLON` | `:` |
+| `EQ` | `=` |
+| `GT` | `>` |
+| `LT` | `<` |
+| `EQ_EQ` | `==` |
+| `GT_EQ` | `>=` |
+| `LT_EQ` | `<=` |
+| `AND` | `&` or `and` |
+| `OR` | `\|` or `or` |
+| `NOT` | `!` or `not` |
+| `LET` | `let` |
+| `OUT` | `out` |
+| `IMPORT` | `import` |
+| `AS` | `as` |
+| `NEWLINE` | `\n` |
 
 Libraries
 - Noise
@@ -36,10 +55,14 @@ Libraries
   - circle
   - other primitives
 - Gradient
-  - X
-  - Y
-  - R
-  - A
+  - toRight
+  - toLeft
+  - toTop
+  - toBottom
+  - outwards
+  - inwards
+  - clockwise
+  - anticlockwise
 - Remap
   - almost identity
   - exp pulse
