@@ -13,8 +13,8 @@ Because... uhhh... GENerative... uhhh... tleart?
 Idk it was a good idea at the time, plus it's short and memorable
 
 ### Plans for the future
-- [ ] An actual working IDE
-- [ ] A way to execute the code properly, with actual tokens and such
+- [ ] An actual working IDE / editor
+- [x] A way to execute the code properly, with actual tokens and such
 - [ ] Simple ways to make your own plugin, like Noise or SDF
   
   Maybe make those plugins with that system?
