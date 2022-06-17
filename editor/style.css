@@ -1,0 +1,63 @@
+body{background:#fff;margin:0; font:14px/1 sans-serif;}
+
+main {
+  display: flex;
+  flex-direction: row;
+} main > * {
+  width: 100%
+}
+
+code {
+  position: relative;
+  display: block;
+  background-color: #2b3038;
+  border: solid #364347;
+  color: #ffffff;
+  height: calc(100vh - 6px);
+  white-space: nowrap;
+  overflow: auto;
+} code > .output, code > .input {
+  padding: 1em 2em;
+  height: calc(100% - 2em);
+  font-size: 1.2em;
+  line-height: 1.6em;
+  display: inline-block;
+} code > .output {
+  position: absolute;
+  top: 0; left: 0; 
+  user-select: none;
+  white-space: pre-wrap;
+} code > .input {
+  width: calc(100% - 4em);
+  outline: none;
+  position: relative;
+  color: transparent;
+  caret-color: #ffffff;
+}
+code.gentle .comment  { color: #9faecc; font-style: italic; }
+code.gentle .number   { color: #46ccff; }
+code.gentle .string   { color: #46ffaa; }
+code.gentle .keyword  { color: #ffaa46; font-weight: bold; }
+code.gentle .variable { color: #00ffe0; }
+
+aside {
+  background-color: #16161d;
+  color: #fff;
+  display: block;
+  padding: 1em;
+  line-height: 1.2em;
+} aside > span {
+  user-select: none;
+  display: inline-block;
+  background-color: #2b3038;
+  color: #fff;
+  border: solid #364347;
+  padding: 0.5em 1.2em;
+} aside > [output] {
+  margin-top: 1em;
+  white-space: pre-wrap;
+  tab-size: 4;
+} aside > [output] > span.error {
+  color: #ff6666;
+}
+
