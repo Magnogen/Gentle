@@ -39,6 +39,7 @@ const scan = (() => {
         case '|':  add_token('PIPE'); break;
         case '?':  add_token('QMARK'); break;
         case ':':  add_token('COLON'); break;
+        case '~':  add_token('RANDOM'); break;
         case '=':  add_token('EQ'); break;
         case '>':  add_token('GT'); break;
         case '<':  add_token('LT'); break;
