@@ -20,8 +20,8 @@
 | `EQ_EQ` | `==` |
 | `GT_EQ` | `>=` |
 | `LT_EQ` | `<=` |
-| `AND` | `&` or `and` |
-| `OR` | `\|` or `or` |
+| `AND` | `&&` or `and` |
+| `OR` | `\|\|` or `or` |
 | `NOT` | `!` or `not` |
 | `LET` | `let` |
 | `OUT` | `out` |
