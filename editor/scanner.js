@@ -23,36 +23,51 @@ const scan = (() => {
       errors.push(`${name}: ${message}\n    at line ${line}`);
       had_error = true;
     }
+    const match = (char) => {
+      console.log(char, source[current+1])
+      if (source[current] == char) {
+        current++; return true;
+      }
+      return false;
+    }
     
     while (current < source.length) {
+      console.log(source[current]);
       switch (source[current++]) {
-        case '(':  add_token('LPAREN'); break;
-        case ')':  add_token('RPAREN'); break;
-        case '[':  add_token('LSQUARE'); break;
-        case ']':  add_token('RSQUARE'); break;
-        case ',':  add_token('COMMA'); break;
-        case '.':  add_token('DOT'); break;
-        case '+':  add_token('ADD'); break;
-        case '-':  add_token('PLUS'); break;
-        case '*':  add_token('MUL'); break;
-        case '/':  add_token('SLASH'); break;
-        case '|':  add_token('PIPE'); break;
-        case '?':  add_token('QMARK'); break;
-        case ':':  add_token('COLON'); break;
-        case '~':  add_token('RANDOM'); break;
-        case '...':add_token('RANGE_SEP'); break;
-        case '=':  add_token('EQ'); break;
-        case '>':  add_token('GT'); break;
-        case '<':  add_token('LT'); break;
-        case '==': add_token('EQ_EQ'); break;
-        case '>=': add_token('GT_EQ'); break;
-        case '<=': add_token('LT_EQ'); break;
-        case '&':  add_token('AND'); break;
-        case '|':  add_token('OR'); break;
-        case '!':  add_token('NOT'); break;
-        case '\n': add_token('LINE_END'); line++; break;
+        case '(': add_token('LPAREN'); break;
+        case ')': add_token('RPAREN'); break;
+        case '[': add_token('LSQUARE'); break;
+        case ']': add_token('RSQUARE'); break;
+        case ',': add_token('COMMA'); break;
+        case '+': add_token('ADD'); break;
+        case '-': add_token('PLUS'); break;
+        case '*': add_token('MUL'); break;
+        case '/': add_token('SLASH'); break;
+        case '|': add_token('PIPE'); break;
+        case '?': add_token('QMARK'); break;
+        case ':': add_token('COLON'); break;
+        case '~': add_token('RANDOM'); break;
+        case '.':
+          if (`${source[current]}${source[current+1]}` == '..') {
+            current += 3;
+            add_token('RANGE_SEP');
+          } else add_token('DOT');
+          break;
+        case '=': add_token(match('=') ? 'EQ_EQ' : 'EQ'); break;
+        case '>': add_token(match('=') ? 'GT_EQ' : 'GT'); break;
+        case '<': add_token(match('=') ? 'LT_EQ' : 'LT'); break;
+        case '&':
+          if (match('&')) add_token('AND');
+          else error('GelemSyntaxError', `Unexpected token '${source[current-1]}'`, line);
+          break;
+        case '|':
+          if (match('|')) add_token('OR');
+          else error('GelemSyntaxError', `Unexpected token '${source[current-1]}'`, line);
+          break;
+        case '!': add_token('NOT'); break;
         case ' ':  case '\t':  break;
-        default:   error('GelemSyntaxError', `Unexpected token '${source[current-1]}'`, line);
+        case '\n': add_token('LINE_END'); line++; break;
+        default: error('GelemSyntaxError', `Unexpected token '${source[current-1]}'`, line);
       }
     }
     
