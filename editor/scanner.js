@@ -40,6 +40,7 @@ const scan = (() => {
         case '?':  add_token('QMARK'); break;
         case ':':  add_token('COLON'); break;
         case '~':  add_token('RANDOM'); break;
+        case '...':add_token('RANGE_SEP'); break;
         case '=':  add_token('EQ'); break;
         case '>':  add_token('GT'); break;
         case '<':  add_token('LT'); break;
@@ -50,7 +51,7 @@ const scan = (() => {
         case '|':  add_token('OR'); break;
         case '!':  add_token('NOT'); break;
         case '\n': add_token('LINE_END'); line++; break;
-        default: error('GelemSyntaxError', `Unexpected token '${source[current-1]}'`, line);
+        default:   error('GelemSyntaxError', `Unexpected token '${source[current-1]}'`, line);
       }
     }
     
