@@ -12,6 +12,8 @@
 | `QMARK` | `?` |
 | `COLON` | `:` |
 | `RANDOM` | `~` |
+| `RANGE_SEP` | `...` |
+| `RANGE_TEST` | [ TBA ] |
 | `EQ` | `=` |
 | `GT` | `>` |
 | `LT` | `<` |
@@ -29,7 +31,6 @@
 
 Libraries
 - Noise
-  - random
   - value
   - perlin
   - simplex
