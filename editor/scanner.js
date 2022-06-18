@@ -51,6 +51,7 @@ const scan = (() => {
         case '|':  add_token('OR'); break;
         case '!':  add_token('NOT'); break;
         case '\n': add_token('LINE_END'); line++; break;
+        case ' ':  case '\t':  break;
         default:   error('GelemSyntaxError', `Unexpected token '${source[current-1]}'`, line);
       }
     }
