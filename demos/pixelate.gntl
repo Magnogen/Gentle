@@ -1,0 +1,32 @@
+import Noise.perlin as perlin
+import Gradient as grad
+import Math.floor as floor
+
+// the source (image to be pixelated)
+let source = perlin(grad.toRight, grad.toTop)
+
+// 'resolution' of the pixelated image
+let res = 16
+
+let floorX = floor(grad.toRight * res) / res
+let floorY = floor(grad.toTop * res) / res
+
+out pixelated = source(floorX, floorY)
+// layers are just functions that take two inputs and return an output after all
+// takes the X and Y coordinate (can be a layer ofc, for variation)
+// and gives the colour at the coordinate
+
+// fun fact: a colour is also technically a layer
+// its pretty useless to think of it like that because the output is always the same
+// lol
+
+// its pretty interesting to think of things like that though
+// in JavaScript, everything is an Object
+// in Gentle, its better to think of everything as a layer
+// a layer is just an infinitely dense picture
+// a picture just takes two inputs (usually between 0 and 1) and returns a colour
+// a colour is a layer too...
+
+// hmm
+// well that was...
+// ...interesting...
