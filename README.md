@@ -24,7 +24,7 @@ Idk it was a good idea at the time, plus it's short and memorable
     - [ ] Expressions
     - [ ] Statements
   - [ ] Evaluating the tree
-    - [ ] Gentle expressions
+    - [ ] Gentle programs
     - [ ] JS plugin stuff
 - [ ] Simple ways to make your own plugin, like Noise or SDF
   
