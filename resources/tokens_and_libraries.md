@@ -8,7 +8,6 @@
 | `DASH` | `-` |
 | `STAR` | `*` |
 | `SLASH` | `/` |
-| `PIPE` | `\|` |
 | `QMARK` | `?` |
 | `COLON` | `:` |
 | `RANDOM` | `~` |
