@@ -1,13 +1,13 @@
 import Gradient as grad
+import Math.abs as abs
 
 // start out with a 100% middle
 let square = 1
 
 // do the outline border
-// (|-x| == |x|, absolute value)
 let thickness = 0.1
-square = |x-0.5| < (0.5-thickness) ? final : 0
-square = |y-0.5| < (0.5-thickness) ? final : 0
+square = abs(x-0.5) < (0.5-thickness) ? final : 0
+square = abs(y-0.5) < (0.5-thickness) ? final : 0
 
 // you can then multiply `square` by 
 // another layer to get a black border
