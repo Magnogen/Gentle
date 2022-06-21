@@ -18,17 +18,15 @@ Idk it was a good idea at the time, plus it's short and memorable
   - [ ] Syntax highlighting
   - [ ] Outputs and inputs to the program
   - [ ] Customisation
-- [ ] A way to execute the code properly, with actual tokens and such
+- [ ] A way to execute Gentle programs
   - [x] Scanning to tokens
-  - [ ] Parsing the tokens into a tree
+  - [ ] Parsing tokens into an intermediate tree
     - [ ] Expressions
     - [ ] Statements
   - [ ] Evaluating the tree
     - [ ] Gentle programs
     - [ ] JS plugin stuff
-- [ ] Simple ways to make your own plugin, like Noise or SDF
-  
-  Maybe make those plugins with that system?
+- [ ] A way to define and register plugins
 - [ ] Proper documentation
   - [ ] For using the language
   - [ ] For modding the language with a plugin
