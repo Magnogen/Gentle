@@ -43,7 +43,6 @@ const scan = (() => {
         case '-': add_token('PLUS'); break;
         case '*': add_token('MUL'); break;
         case '/': add_token('SLASH'); break;
-        case '|': add_token('PIPE'); break;
         case '?': add_token('QMARK'); break;
         case ':': add_token('COLON'); break;
         case '~': add_token('RANDOM'); break;
