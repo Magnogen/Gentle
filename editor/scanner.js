@@ -57,16 +57,16 @@ const scan = (() => {
         case '<': add_token(match('=') ? 'LT_EQ' : 'LT'); break;
         case '&':
           if (match('&')) add_token('AND');
-          else error('GelemSyntaxError', `Unexpected token '${source[current-1]}'`, line);
+          else error('GentleSyntaxError', `Unexpected token '${source[current-1]}'`, line);
           break;
         case '|':
           if (match('|')) add_token('OR');
-          else error('GelemSyntaxError', `Unexpected token '${source[current-1]}'`, line);
+          else error('GentleSyntaxError', `Unexpected token '${source[current-1]}'`, line);
           break;
         case '!': add_token('NOT'); break;
         case ' ':  case '\t':  break;
         case '\n': add_token('LINE_END'); line++; break;
-        default: error('GelemSyntaxError', `Unexpected token '${source[current-1]}'`, line);
+        default: error('GentleSyntaxError', `Unexpected token '${source[current-1]}'`, line);
       }
     }
     

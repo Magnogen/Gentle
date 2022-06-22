@@ -1,10 +1,31 @@
 const highlight = (_=>{
+  
+  let current, start;
+  
+  const COMMENT = (source) => {
+    while (source[current] != '\n') {
+      current++;
+    }
+    return `<span class="comment">${source.substring(start, current)+'\n'}</span>`
+  }
 
   function highlight(source) {
     
-    let res = source;
+    let res = '';
+    current = start = 0;
     
-    res = res.replaceAll(/(("|')(\\\2|.)*?\2)/g, '<span class="string">$1</span>');
+    const toggle = () => {
+      switch (source[current]) {
+        case '/': if (source[current+1] == '/') return COMMENT(source);
+      }
+      return source[current];
+    }
+    
+    while (current < source.length) {
+      res += toggle();
+      current++;
+      start = current;
+    }
     
     return res;
     

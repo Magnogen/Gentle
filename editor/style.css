@@ -11,7 +11,7 @@ code {
   position: relative;
   display: block;
   background-color: #2b3038;
-  border: solid #364347;
+  border: solid #334044;
   color: #ffffff;
   height: calc(100vh - 6px);
   white-space: nowrap;
@@ -34,11 +34,10 @@ code {
   color: transparent;
   caret-color: #ffffff;
 }
-code.gentle .comment  { color: #9faecc; font-style: italic; }
-code.gentle .number   { color: #46ccff; }
-code.gentle .string   { color: #46ffaa; }
-code.gentle .keyword  { color: #ffaa46; font-weight: bold; }
-code.gentle .variable { color: #00ffe0; }
+code.gentle .comment  { color: #9fbedc; font-style: italic; }
+code.gentle .number   { color: #46dcff; }
+code.gentle .string   { color: #46ffba; }
+code.gentle .keyword  { color: #ffba46; font-weight: bold; }
 
 aside {
   background-color: #16161d;
