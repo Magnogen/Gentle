@@ -13,10 +13,8 @@ $("[contenteditable]").addEventListener('input', ({ target }) => {
 });
 $("[contenteditable]").dispatchEvent(new Event("input"));
 
-function Layer(func) {
-  return func;
-}
-Layer.Color = function(c) {
+function Layer(func) { return func; }
+Layer.COLOR = function(c) {
   let col = c;
   let alpha = false;
   if (typeof col == 'string') {
@@ -34,13 +32,85 @@ Layer.Color = function(c) {
 
   return new Layer((x, y) => col);
 }
+Layer.IF = function(condition, then, otherwise) {
+  return new Layer( (x, y) => condition(x, y) ? then(x, y) : otherwise(x, y) )
+}
+Layer.LESS = function(a, b) { return new Layer( (x, y) => a(x, y) < b(x, y) ) }
+Layer.MORE = function(a, b) { return new Layer( (x, y) => a(x, y) > b(x, y) ) }
+Layer.ADD  = function(a, b) { return new Layer( (x, y) => {
+  let A = a(x, y), B = b(x, y);
+  if (typeof A == 'number') {
+    if (typeof B == 'number') return A + B;
+    if (Array.isArray(B)) return B.map((e, i) => A + e);
+  }
+  if (Array.isArray(A)) {
+    if (typeof B == 'number') return A.map((e, i) => e + B);
+    if (Array.isArray(B)) return A.map((e, i) => e + B[i]);
+  }
+} ) }
+Layer.SUB  = function(a, b) { return new Layer( (x, y) => {
+  let A = a(x, y), B = b(x, y);
+  if (typeof A == 'number') {
+    if (typeof B == 'number') return A - B;
+    if (Array.isArray(B)) return B.map((e, i) => A - e);
+  }
+  if (Array.isArray(A)) {
+    if (typeof B == 'number') return A.map((e, i) => e - B);
+    if (Array.isArray(B)) return A.map((e, i) => e - B[i]);
+  }
+} ) }
+Layer.MUL  = function(a, b) { return new Layer( (x, y) => {
+  let A = a(x, y), B = b(x, y);
+  if (typeof A == 'number') {
+    if (typeof B == 'number') return A * B;
+    if (Array.isArray(B)) return B.map((e, i) => A * e);
+  }
+  if (Array.isArray(A)) {
+    if (typeof B == 'number') return A.map((e, i) => e * B);
+    if (Array.isArray(B)) return A.map((e, i) => e * B[i]);
+  }
+} ) }
+Layer.DIV  = function(a, b) { return new Layer( (x, y) => {
+  let A = a(x, y), B = b(x, y);
+  if (typeof A == 'number') {
+    if (typeof B == 'number') return A / B;
+    if (Array.isArray(B)) return B.map((e, i) => A / e);
+  }
+  if (Array.isArray(A)) {
+    if (typeof B == 'number') return A.map((e, i) => e / B);
+    if (Array.isArray(B)) return A.map((e, i) => e / B[i]);
+  }
+} ) }
+Layer.NUMBER = function(n) { return new Layer( () => n ) }
 
-let COMPUTE = (x, y) => {
-  let a = Layer.Color('#004cff')();
-  let b = Layer.Color('#0032a8')();
+Layer.X = function() { return new Layer((x, y) => x) }
+Layer.Y = function() { return new Layer((x, y) => y) }
+
+let COMPUTE = Layer.ADD(
+  Layer.COLOR('#004cff'),
+  Layer.MUL(
+    Layer.Y(),
+    Layer.SUB(Layer.COLOR('#0032a8'), Layer.COLOR('#004cff'))
+  )
+)
+
+console.log(
+  Layer.ADD(
+    Layer.COLOR('#0032a8'),
+    Layer.MUL(
+      Layer.Y(),
+      Layer.SUB(Layer.COLOR('#004cff'), Layer.COLOR('#0032a8'))
+    )
+  )(0, 0)
+)
+
+// COMPUTE = (x, y) => {
+//   let a = Layer.Color('#004cff')();
+//   let b = Layer.Color('#0032a8')();
   
-  return y < 0.5 ? a : b;
-};
+//   return y < 0.5 ? a : b;
+// };
+
 
 // interpreting / painting
 $('aside > span').addEventListener('click', () => {
