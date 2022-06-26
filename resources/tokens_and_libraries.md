@@ -1,7 +1,6 @@
 | Token | Matching string |
 | :- | :-: |
 | `LPAREN`, `RPAREN` | `(`, `)` |
-| `LSQUARE`, `RSQUARE` | `[`, `]` |
 | `COMMA` | `,` |
 | `DOT` | `.` |
 | `PLUS` | `+` |
@@ -36,6 +35,7 @@ Libraries
   - voronoi
 - Colour
   - sample colours
+  - rgb
   - hsl
   - cmy
 - Inout
