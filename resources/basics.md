@@ -22,7 +22,6 @@ do maths with layers and colours and stuff
 
 set colours with arrays or hex codes
 ```
-let blue = [20, 40, 255]
 let blue = #1428ff
 let blue = Colour.blue
 ```
