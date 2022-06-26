@@ -4,14 +4,15 @@
 
 import Gradient as grad
 import Precompute
+import Color as col
 import Math.cos as cos
 import Math.TAU as tau
 
 let range = 0.2 ... 0.8
 
-let a = Precompute(0, [~range, ~range, ~range])
-let b = Precompute(1, [~range, ~range, ~range])
-let c = Precompute(2, [~range, ~range, ~range])
-let d = Precompute(3, [~range, ~range, ~range])
+let a = Precompute(0, col(~range, ~range, ~range))
+let b = Precompute(1, col(~range, ~range, ~range))
+let c = Precompute(2, col(~range, ~range, ~range))
+let d = Precompute(3, col(~range, ~range, ~range))
 
 out color_scheme = a + b*cos(tau*(c*grad.toRight + d))
