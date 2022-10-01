@@ -1,6 +1,5 @@
 # Gentle
-##### https://gentle.magnogen.net 
-## A Programming Language for drawing Generative Art
+###### Little Drawing Language https://gentle.magnogen.net
 
 This is the source code for a project I've been working on as a back burner, until now.
 It's a programming language designed to paint pieces of generative art.
